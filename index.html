@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Turístico de Viana - MA</title>
+    
+    <!-- CSS do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #1b4d3e;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px;
+        }
+        #map {
+            width: 100%;
+            height: calc(100vh - 50px); /* Ocupa toda a tela descontando o topo */
+        }
+        /* Estilização das caixas de texto (popups) */
+        .popup-card {
+            max-width: 220px;
+            text-align: center;
+        }
+        .popup-card h3 {
+            margin-bottom: 6px;
+            color: #1b4d3e;
+            font-size: 16px;
+        }
+        .popup-card p {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .popup-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Guia Interativo: Mapa Turístico de Viana - MA</h2>
+    </header>
+
+    <div id="map"></div>
+
+    <!-- JS do Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
