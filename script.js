@@ -1,5 +1,5 @@
 // 1. Inicializa o mapa centralizado no município de Viana - MA (zoom nível 14)
-var map = L.map('map').setView([-3.203836446260174, -44.99599303977531], 20);
+var map = L.map('map').setView([-3.193593527953364, -44.992652666077404], 20);
 
 // 2. Carrega as imagens do mapa base (OpenStreetMap)
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
