@@ -16,7 +16,6 @@ var pontosTuristicos = [
         lng: -45.000738610356606,
         descricao: "Patrimônio histórico e religioso construído no século XVIII no centro da cidade.",
         imagem: "imagens/matriz.jpeg"
-        imagem: "imagens/matriz1.jpg"
     },
     {
         nome: "Academia Vianense de Letras - AVL",
@@ -25,7 +24,6 @@ var pontosTuristicos = [
         descricao: "Entidade cultural sediada no município de Viana, no Maranhão, dedicada à preservação, estímulo e valorização da literatura, da história e das artes locais.",
         imagem: "imagens/avl.jpeg"
     },
-    
     {
         nome: "Casas do Centro Histórico de Viana",
         lat: -3.2192066701760953,
@@ -33,7 +31,6 @@ var pontosTuristicos = [
         descricao: "É um importante acervo da arquitetura luso-maranhense e um dos conjuntos urbanos mais antigos do estado.",
         imagem: "imagens/centrohistorico.jpeg"
     },
-
     {
         nome: "Centro Histórico / Casarão Amarelo",
         lat: -3.219745210576752,
@@ -41,68 +38,50 @@ var pontosTuristicos = [
         descricao: "Conhecido historicamente como Sobrado Amarelo ou antigo prédio da Fábrica Santa Maria, é um dos principais marcos da arquitetura e da história do município de Viana, na Baixada Maranhense.",
         imagem: "imagens/casarao.jpg"
     },
-
     {
         nome: "Cais de Viana / Parque Dilu Melo",
         lat: -3.2216914145365614,
         lng: -44.9997233952708,
-        descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais. Localizado às margens do Lago de Viana",
+        descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais. Localizado às margens do Lago de Viana.",
         imagem: "imagens/cais.jpeg"
-        imagem: "imagens/cais1.jpg"
-        imagem: "imagens/cais2.jpg"
     },
-
     {
         nome: "Igarapé do Engenho / Cais Beira Rio",
         lat: -3.219745210576752,
         lng: -45.002224661164945,
         descricao: "Área de beleza natural com vista privilegiada para as águas da baixada vianense. O igarapé serve como um elo natural que conecta o Lago de Viana ao Lago Aquiri.",
         imagem: "imagens/igarapedoengenho.jpg"
-        imagem: "imagens/igarapedoengenho1.jpg"
-
     },
 
-// GEOGRAFICOS
+// GEOGRÁFICOS
     {
         nome: "Lago de Viana",
         lat: -3.226815,
         lng: -45.050505,
         descricao: "Lago de várzea, integrante da bacia do rio Pindaré e com influência de campos inundáveis que lembram um pantanal maranhense.",
         imagem: "imagens/lago1.jpeg"
-        imagem: "imagens/lago2.jpeg"
-        imagem: "imagens/lago3.jpeg"
     },
-
     {
         nome: "Outeiro do Mocoroca",
         lat: -3.2382066287533156,
         lng: -45.03744085800717,
-        descricao: "localizado às margens do Lago de Viana, no município de Viana, na Baixada Maranhense.",
+        descricao: "Localizado às margens do Lago de Viana, no município de Viana, na Baixada Maranhense.",
         imagem: "imagens/mocoroca.jpeg"
-        imagem: "imagens/mocoroca1.jpeg"
     },
-
     {
         nome: "Galega",
         lat: -3.1706342633476448,
         lng: -45.00192433350712,
         descricao: "Conhecida por sua paisagem natural e por atrações na região dos lagos da cidade.",
         imagem: "imagens/galega1.jpeg"
-        imagem: "imagens/galega2.jpeg"
     },
-
     {
         nome: "Colhereiras",
         lat: -3.1892099672722307,
         lng: -44.97420655207371,
         descricao: "Próximo à região do bairro Vinagre e da Avenida Vasco da Gama, fazendo ligação com áreas de recursos hídricos e naturais da região, como o Igarapé do Engenho.",
         imagem: "imagens/colhereira1.jpeg"
-        imagem: "imagens/colhereira2.jpeg"
     }
-
-
-
-
 ];
 
 // 4. Percorre a lista e insere os marcadores com as caixas de texto (popups)
