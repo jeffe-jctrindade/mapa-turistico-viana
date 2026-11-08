@@ -47,8 +47,8 @@ var pontosTuristicos = [
     },
     {
         nome: "Igarapé do Engenho / Cais Beira Rio",
-        lat: -3.219745210576752,
-        lng: -45.002224661164945,
+        lat: -3.207833040487924, 
+        lng: -44.970730597115995,
         descricao: "Área de beleza natural com vista privilegiada para as águas da baixada vianense. O igarapé serve como um elo natural que conecta o Lago de Viana ao Lago Aquiri.",
         imagem: "imagens/igarapedoengenho.jpg"
     },
@@ -56,8 +56,8 @@ var pontosTuristicos = [
 // GEOGRÁFICOS
     {
         nome: "Lago de Viana",
-        lat: -3.226815,
-        lng: -45.050505,
+        lat: -3.2335756994663174,
+        lng: -45.00794589740899,
         descricao: "Lago de várzea, integrante da bacia do rio Pindaré e com influência de campos inundáveis que lembram um pantanal maranhense.",
         imagem: "imagens/lago1.jpeg"
     },
