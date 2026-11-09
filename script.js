@@ -1,100 +1,166 @@
-// 1. Inicializa o mapa centralizado no município de Viana - MA (zoom nível 14)
-var map = L.map('map').setView([-3.2078, -45.0036], 14);,
+// Variáveis globais do mapa
+var map;
+var markersLayer = L.layerGroup();
 
-// 2. Carrega as imagens do mapa base (OpenStreetMap)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap'
-}).addTo(map);
-
-// 3. Cadastre os pontos turísticos no Array abaixo
+// Lista completa de Pontos Turísticos
 var pontosTuristicos = [
-// HISTÓRICOS    
+    // HISTÓRICOS    
     {
+        tipo: "historico",
         nome: "Igreja Matriz de Nossa Sra. da Conceição",
         lat: -3.219638897310755,
         lng: -45.000738610356606,
         descricao: "Patrimônio histórico e religioso construído no século XVIII no centro da cidade.",
-        imagem: "imagens/matriz.jpeg"
+        imagem: "imagens/matriz.jpeg",
+        audio: "audios/matriz.mp3"
     },
     {
+        tipo: "historico",
         nome: "Academia Vianense de Letras - AVL",
         lat: -3.219507688224516,
         lng: -45.001613619561574,
-        descricao: "Entidade cultural sediada no município de Viana, no Maranhão, dedicada à preservação, estímulo e valorização da literatura, da história e das artes locais.",
-        imagem: "imagens/avl.jpeg"
+        descricao: "Entidade cultural sediada no município de Viana, dedicada à preservação, estímulo e valorização da literatura, da história e das artes locais.",
+        imagem: "imagens/avl.jpeg",
+        audio: "audios/avl.mp3"
     },
     {
+        tipo: "historico",
         nome: "Casas do Centro Histórico de Viana",
         lat: -3.2192066701760953,
         lng: -45.00191348342269,
         descricao: "É um importante acervo da arquitetura luso-maranhense e um dos conjuntos urbanos mais antigos do estado.",
-        imagem: "imagens/centrohistorico.jpeg"
+        imagem: "imagens/centrohistorico.jpeg",
+        audio: "audios/centrohistorico.mp3"
     },
     {
+        tipo: "historico",
         nome: "Centro Histórico / Casarão Amarelo",
         lat: -3.219745210576752,
         lng: -45.002224661164945,
-        descricao: "Conhecido historicamente como Sobrado Amarelo ou antigo prédio da Fábrica Santa Maria, é um dos principais marcos da arquitetura e da história do município de Viana, na Baixada Maranhense.",
-        imagem: "imagens/casarao.jpg"
+        descricao: "Conhecido historicamente como Sobrado Amarelo ou antigo prédio da Fábrica Santa Maria, é um dos principais marcos da arquitetura e da história.",
+        imagem: "imagens/casarao.jpg",
+        audio: "audios/casarao.mp3"
     },
     {
+        tipo: "historico",
         nome: "Cais de Viana / Parque Dilu Melo",
         lat: -3.2216914145365614,
         lng: -44.9997233952708,
-        descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais. Localizado às margens do Lago de Viana.",
-        imagem: "imagens/cais.jpeg"
+        descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais às margens do Lago.",
+        imagem: "imagens/cais.jpeg",
+        audio: "audios/cais.mp3"
     },
     {
+        tipo: "historico",
         nome: "Igarapé do Engenho / Cais Beira Rio",
         lat: -3.207833040487924, 
         lng: -44.970730597115995,
-        descricao: "Área de beleza natural com vista privilegiada para as águas da baixada vianense. O igarapé serve como um elo natural que conecta o Lago de Viana ao Lago Aquiri.",
-        imagem: "imagens/igarapedoengenho.jpg"
+        descricao: "Área de beleza natural com vista privilegiada. O igarapé serve como elo natural conectando o Lago de Viana ao Lago Aquiri.",
+        imagem: "imagens/igarapedoengenho.jpg",
+        audio: "audios/igarape.mp3"
     },
 
-// GEOGRÁFICOS
+    // GEOGRÁFICOS / NATURAIS
     {
+        tipo: "natural",
         nome: "Lago de Viana",
         lat: -3.2335756994663174,
         lng: -45.00794589740899,
         descricao: "Lago de várzea, integrante da bacia do rio Pindaré e com influência de campos inundáveis que lembram um pantanal maranhense.",
-        imagem: "imagens/lago1.jpeg"
+        imagem: "imagens/lago1.jpeg",
+        audio: "audios/lago.mp3"
     },
     {
+        tipo: "natural",
         nome: "Outeiro do Mocoroca",
         lat: -3.2382066287533156,
         lng: -45.03744085800717,
         descricao: "Localizado às margens do Lago de Viana, no município de Viana, na Baixada Maranhense.",
-        imagem: "imagens/mocoroca.jpeg"
+        imagem: "imagens/mocoroca.jpeg",
+        audio: "audios/mocoroca.mp3"
     },
     {
+        tipo: "natural",
         nome: "Galega",
         lat: -3.1706342633476448,
         lng: -45.00192433350712,
         descricao: "Conhecida por sua paisagem natural e por atrações na região dos lagos da cidade.",
-        imagem: "imagens/galega1.jpeg"
+        imagem: "imagens/galega1.jpeg",
+        audio: "audios/galega.mp3"
     },
     {
+        tipo: "natural",
         nome: "Colhereiras",
         lat: -3.1892099672722307,
         lng: -44.97420655207371,
-        descricao: "Próximo à região do bairro Vinagre e da Avenida Vasco da Gama, fazendo ligação com áreas de recursos hídricos e naturais da região, como o Igarapé do Engenho.",
-        imagem: "imagens/colhereira1.jpeg"
+        descricao: "Próximo à região do bairro Vinagre e da Avenida Vasco da Gama, fazendo ligação com áreas de recursos hídricos e naturais.",
+        imagem: "imagens/colhereira1.jpeg",
+        audio: "audios/colhereiras.mp3"
     }
 ];
 
-// 4. Percorre a lista e insere os marcadores com as caixas de texto (popups)
-pontosTuristicos.forEach(function(ponto) {
-    var conteudo = `
-        <div class="popup-card">
-            <h3>${ponto.nome}</h3>
-            <p>${ponto.descricao}</p>
-            <img src="${ponto.imagem}" alt="${ponto.nome}">
-        </div>
-    `;
+// Função chamada ao clicar nas opções da tela inicial
+function iniciarMapa(filtro) {
+    // Esconde a tela de boas-vindas com efeito suave
+    var welcomeScreen = document.getElementById('welcome-screen');
+    welcomeScreen.style.opacity = '0';
+    setTimeout(function() {
+        welcomeScreen.style.display = 'none';
+    }, 400);
 
-    L.marker([ponto.lat, ponto.lng])
-     .addTo(map)
-     .bindPopup(conteudo);
-});
+    // Inicializa o mapa caso ainda não tenha sido criado
+    if (!map) {
+        map = L.map('map').setView([-3.2078, -45.0036], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        markersLayer.addTo(map);
+    }
+
+    // Limpa marcadores anteriores se houver
+    markersLayer.clearLayers();
+
+    // Filtra e adiciona os pontos correspondentes
+    pontosTuristicos.forEach(function(ponto) {
+        if (filtro === 'todos' || ponto.tipo === filtro) {
+            
+            // Link direto para o Google Maps com as coordenadas do ponto
+            var urlGoogleMaps = `https://www.google.com/maps/dir/?api=1&destination=${ponto.lat},${ponto.lng}`;
+
+            // Conteúdo HTML do Popup com Player de Áudio e Botão de Rota
+            var conteudo = `
+                <div class="popup-card">
+                    <h3>${ponto.nome}</h3>
+                    <p>${ponto.descricao}</p>
+                    <img src="${ponto.imagem}" alt="${ponto.nome}">
+                    <audio controls class="audio-player" src="${ponto.audio}"></audio>
+                    <a href="${urlGoogleMaps}" target="_blank" class="btn-route">Quero conhecer este lugar</a>
+                </div>
+            `;
+
+            var marker = L.marker([ponto.lat, ponto.lng]).bindPopup(conteudo);
+
+            // Evento para parar o áudio automaticamente quando o balão for fechado
+            marker.on('popupclose', function(e) {
+                var popupNode = e.popup.getElement();
+                if (popupNode) {
+                    var audioEl = popupNode.querySelector('audio');
+                    if (audioEl) {
+                        audioEl.pause();
+                        audioEl.currentTime = 0; // Reseta o áudio para o início
+                    }
+                }
+            });
+
+            markersLayer.addLayer(marker);
+        }
+    });
+
+    // Força o Leaflet a recalcular o tamanho da tela após sumir com a capa
+    setTimeout(function() {
+        map.invalidateSize();
+    }, 500);
+}
