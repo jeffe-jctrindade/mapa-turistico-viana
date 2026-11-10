@@ -44,11 +44,11 @@ var pontosTuristicos = [
     {
         tipo: "historico",
         nome: "Cais de Viana / Parque Dilu Melo",
-        lat: -3.2216914145365614,
-        lng: -44.9997233952708,
+        lat: -3.2211411322346506,
+        lng: -45.00008062212574,
         descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais às margens do Lago.",
-        imagem: "imagens/cais.jpeg",
-        audio: "audios/cais.mp3"
+        imagem: "imagens/parquedilumelo.jpeg",
+        audio: "audios/parquedilumelo.mp3"
     },
     {
         tipo: "historico",
@@ -67,7 +67,7 @@ var pontosTuristicos = [
         lat: -3.2335756994663174,
         lng: -45.00794589740899,
         descricao: "Lago de várzea, integrante da bacia do rio Pindaré e com influência de campos inundáveis que lembram um pantanal maranhense.",
-        imagem: "imagens/lago1.jpeg",
+        imagem: "imagens/lago.jpeg",
         audio: "audios/lago.mp3"
     },
     {
@@ -85,7 +85,7 @@ var pontosTuristicos = [
         lat: -3.1706342633476448,
         lng: -45.00192433350712,
         descricao: "Conhecida por sua paisagem natural e por atrações na região dos lagos da cidade.",
-        imagem: "imagens/galega1.jpeg",
+        imagem: "imagens/galega.jpeg",
         audio: "audios/galega.mp3"
     },
     {
@@ -96,6 +96,15 @@ var pontosTuristicos = [
         descricao: "Próximo à região do bairro Vinagre e da Avenida Vasco da Gama, fazendo ligação com áreas de recursos hídricos e naturais.",
         imagem: "imagens/colhereira1.jpeg",
         audio: "audios/colhereiras.mp3"
+    },
+    {
+        tipo: "historico",
+        nome: "Cais de Viana",
+        lat: -3.2216914145365614,
+        lng: -44.9997233952708,
+        descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais às margens do Lago.",
+        imagem: "imagens/cais.jpeg",
+        audio: "audios/cais.mp3"
     }
 ];
 

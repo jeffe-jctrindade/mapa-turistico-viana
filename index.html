@@ -20,14 +20,17 @@
             overflow: hidden;
         }
         
-        /* Tela de Boas-Vindas / Capa Moderna */
+        /* Tela de Boas-Vindas / Capa Responsiva com Background Image */
         #welcome-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: linear-gradient(135deg, #1b4d3e, #0f2e24);
+            /* Combina uma camada de tom azul escuro semitransparente com a imagem de fundo */
+            background: linear-gradient(135deg, rgba(27, 77, 62, 0.85), rgba(15, 46, 36, 0.9)), 
+                        url('imagens/background_viana.jpg') no-repeat center center;
+            background-size: cover; /* Garante que a imagem se ajuste cobrindo toda a tela em qualquer dispositivo */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -36,17 +39,37 @@
             color: #ffffff;
             text-align: center;
             padding: 20px;
+            transition: opacity 0.4s ease;
         }
+
+        /* Container para Logomarca e Bandeira lado a lado */
+        .logos-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logos-container img {
+            height: 70px;
+            object-fit: contain;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 4px;
+        }
+
         #welcome-screen h1 {
             font-size: 2.2rem;
             margin-bottom: 10px;
             color: #ffd700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         #welcome-screen p {
             font-size: 1.1rem;
             margin-bottom: 30px;
             max-width: 600px;
             color: #e0e0e0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         .menu-options {
             display: flex;
@@ -64,7 +87,7 @@
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .btn-option:hover {
             background-color: #ffd700;
@@ -72,14 +95,34 @@
             transform: translateY(-3px);
         }
 
-        /* Estrutura do Mapa */
+        /* Estrutura do Cabeçalho e Mapa */
         header {
             background-color: #1b4d3e;
             color: #ffffff;
-            text-align: center;
-            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+        header h2 {
+            font-size: 1.2rem;
+        }
+        .btn-voltar {
+            background-color: #ffd700;
+            color: #1b4d3e;
+            border: none;
+            padding: 6px 14px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-voltar:hover {
+            background-color: #ffc107;
+        }
+
         #map-container {
             position: relative;
             width: 100%;
@@ -134,12 +177,34 @@
         .btn-route:hover {
             background-color: #2e7d62;
         }
+
+        /* Responsividade para telas menores (celulares) */
+        @media (max-width: 600px) {
+            #welcome-screen h1 {
+                font-size: 1.8rem;
+            }
+            #welcome-screen p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+            .btn-option {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .logos-container img {
+                height: 55px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Tela Inicial de Escolha -->
+    <!-- Tela Inicial de Escolha com Background Responsivo -->
     <div id="welcome-screen">
+        <div class="logos-container">
+            <img src="imagens/logo_escola.png" alt="Logomarca da Escola">
+            <img src="imagens/bandeira_viana.png" alt="Bandeira de Viana">
+        </div>
         <h1>Descubra Viana - MA</h1>
         <p>Explore o patrimônio histórico, os encantos naturais e a beleza da nossa terra através de um guia digital interativo.</p>
         <div class="menu-options">
@@ -149,8 +214,10 @@
         </div>
     </div>
 
+    <!-- Cabeçalho com o Botão de Retorno -->
     <header>
         <h2>Guia Interativo: Mapa Turístico de Viana - MA</h2>
+        <button class="btn-voltar" onclick="voltarAoInicio()">🔄 Trocar Categoria</button>
     </header>
 
     <div id="map-container">
@@ -160,5 +227,15 @@
     <!-- JS do Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Função para exibir novamente a tela de boas-vindas
+        function voltarAoInicio() {
+            var welcomeScreen = document.getElementById('welcome-screen');
+            welcomeScreen.style.display = 'flex';
+            setTimeout(function() {
+                welcomeScreen.style.opacity = '1';
+            }, 10);
+        }
+    </script>
 </body>
 </html>
