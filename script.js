@@ -86,7 +86,7 @@ var pontosTuristicos = [
         lng: -45.00192433350712,
         descricao: "Conhecida por sua paisagem natural e por atrações na região dos lagos da cidade.",
         imagem: "imagens/galega.jpeg",
-        audio: "audios/galega.mp3"
+        audio: "audios/galegas.mp3"
     },
     {
         tipo: "natural",
@@ -95,14 +95,14 @@ var pontosTuristicos = [
         lng: -44.97420655207371,
         descricao: "Próximo à região do bairro Vinagre e da Avenida Vasco da Gama, fazendo ligação com áreas de recursos hídricos e naturais.",
         imagem: "imagens/colhereira1.jpeg",
-        audio: "audios/colhereiras.mp3"
+        audio: "audios/colhereira.mp3"
     },
     {
-        tipo: "historico",
+        tipo: "natural",
         nome: "Cais de Viana",
         lat: -3.2216914145365614,
         lng: -44.9997233952708,
-        descricao: "É um dos principais pontos turísticos e de lazer da cidade. O espaço recebe decorações e eventos tradicionais às margens do Lago.",
+        descricao: "Às margens do lago de viana, serve de porto para embarque de turistas na época da cheia e usado também para prática de esportes náuticos.",
         imagem: "imagens/cais.jpeg",
         audio: "audios/cais.mp3"
     }
